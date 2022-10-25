@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlgMerge</class>
+ <widget class="QDialog" name="dlgMerge">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>340</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PDF Merger</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>451</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="lytMain" stretch="10,10">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QGroupBox" name="grpFiles">
+      <property name="title">
+       <string>Files to merge</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>191</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="lytFiles" stretch="1,0,1">
+        <item>
+         <widget class="QLabel" name="lblNoteOnMerge">
+          <property name="text">
+           <string>NOTE: Merging is top-down order</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lbxFiles"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="lytBtnFiles">
+          <item>
+           <widget class="QPushButton" name="btnAddFiles">
+            <property name="toolTip">
+             <string>Add file(s)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/icons8-plus-+.svg</normaloff>icons/icons8-plus-+.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRemoveFiles">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/icons8-delete.svg</normaloff>icons/icons8-delete.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDocDown">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/down-arrow.png</normaloff>icons/down-arrow.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDocUp">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/up-arrow.png</normaloff>icons/up-arrow.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="lytRight" stretch="1,1">
+      <item>
+       <widget class="QGroupBox" name="grpFileProperties">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="title">
+         <string>Current PDF properties</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>191</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="lytFileProperties">
+          <item>
+           <widget class="QLabel" name="lblNoDocPages">
+            <property name="text">
+             <string>Number of pages: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbtAllPages">
+            <property name="text">
+             <string>Include all pages</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbtSelectedPages">
+            <property name="text">
+             <string>Include selected page(s)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="ledSetDocPages">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Separate by , and give range by -</string>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="maxLength">
+             <number>500</number>
+            </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <property name="cursorMoveStyle">
+             <enum>Qt::LogicalMoveStyle</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="lytBtmRight">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+          <item>
+           <widget class="QLabel" name="lblPageLayout">
+            <property name="text">
+             <string>Page layout:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cmbPageLayout">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>No Layout</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Single Page</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>One Column</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Two Column Left</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Two Column Right</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Two Page Left</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Two Page Right</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblOutputFilename">
+          <property name="text">
+           <string>Output filename of merged documents:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="lytOutputMerged" stretch="9,1">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="ledOutputFilepath">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string>merged.pdf</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnOutputMergedFile">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Save file as...</string>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnMerge">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Merge!</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/icons8-convert.png</normaloff>icons/icons8-convert.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

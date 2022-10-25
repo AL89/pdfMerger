@@ -104,6 +104,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+venv_pdf/
 env/
 venv/
 ENV/
@@ -127,3 +128,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+CV_AndreasLoevgaard.pdf
+Eksamensbevis_AndreasLoevgaard.pdf
+praktikudtalelse_AndreasLoevgaard.pdf
+Udtalelse_AndreasLoevgaard_NIRAS.pdf
+print_output.ipynb
+string_analyze.ipynb
