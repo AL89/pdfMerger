@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>340</height>
+    <width>469</width>
+    <height>341</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PDF Merger</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icons/app_logo.ico</normaloff>icons/app_logo.ico</iconset>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">

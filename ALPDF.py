@@ -1,8 +1,9 @@
-import os, sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
-from PyQt5.QtWebEngineWidgets import QWebEngineSettings
-from PyQt5.QtCore import QUrl
+import sys
+from PyQt6.QtWidgets import QMainWindow, QApplication, QFileDialog
+from PyQt6.QtWebEngineCore import QWebEngineSettings
+from PyQt6.QtCore import QUrl
 from GUI.ui_ALPDF import *
+# from GUI.ui_pdfmerger import *
 
 class MenuMain(QMainWindow,Ui_MenuMain):
     def __init__(self):
@@ -10,7 +11,7 @@ class MenuMain(QMainWindow,Ui_MenuMain):
         self.setupUi(self)
         self.setWindowTitle('AL PDF')
 
-        self.wevPDF.settings().setAttribute(QWebEngineSettings.PluginsEnabled,True)
+        self.wevPDF.settings().setAttribute(QWebEngineSettings.WebAttribute.PluginsEnabled,True)
 
         # Signals
         self.actionOpen.triggered.connect(self.evt_openDoc_triggered)
@@ -28,4 +29,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     mnuMain = MenuMain()
     mnuMain.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

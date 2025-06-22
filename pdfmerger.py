@@ -1,15 +1,22 @@
 import os, sys
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QIntValidator, QValidator
+from PyQt6.QtWidgets import *
+from PyQt6.QtGui import QIcon, QPixmap
 from PyPDF2 import PdfReader, PdfMerger
 import re
 from GUI.ui_pdfmerger import *
+
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 class DlgMain(QDialog,Ui_dlgMerge):
     def __init__(self):
         super(DlgMain,self).__init__()
         self.setupUi(self)
         self.setLayout(self.lytMain) # Set main layout. The program can now stretch
+        self.setWindowIcon(QIcon(resource_path("GUI/icons/app_logo.ico")))
         self.btgPages = QButtonGroup()
         self.btgPages.addButton(self.rbtAllPages)
         self.btgPages.addButton(self.rbtSelectedPages)
@@ -19,6 +26,12 @@ class DlgMain(QDialog,Ui_dlgMerge):
         self.Files = [] # Initial constructor for PDF files. When adding to to the list widget, the PDF is appended here as well as a dictionary.
         self.ledOutputFilepath.setText(os.getcwd() + "\\" + self.ledOutputFilepath.text())
         self.OutputFilepathMerged = self.ledOutputFilepath.text()
+
+        # Button icons
+        self.btnAddFiles.setIcon(QIcon(resource_path("GUI/icons/icons8-plus-+.ico")))
+        self.btnRemoveFiles.setIcon(QIcon(resource_path("GUI/icons/icons8-delete.ico")))
+        self.btnDocDown.setIcon(QIcon(resource_path("GUI/icons/down-arrow.ico")))
+        self.btnDocUp.setIcon(QIcon(resource_path("GUI/icons/up-arrow.ico")))
 
         # Signals and slots
         ## "Files to merge" group
@@ -48,7 +61,7 @@ class DlgMain(QDialog,Ui_dlgMerge):
             if filepath in filepaths:
             # if filepath in self.Files:
                 msg = QMessageBox.question(self,'File already added','File already added. Add it again?')
-                if msg == QMessageBox.No:
+                if msg == QMessageBox.StandardButton.No:
                     addFile = False
 
             if addFile:
@@ -216,4 +229,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     dlgMain = DlgMain()
     dlgMain.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

@@ -91,6 +91,9 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
+# uv
+uv.lock
+
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
@@ -115,6 +118,9 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# VS code
+.vscode/
+
 # Rope project settings
 .ropeproject
 
@@ -129,9 +135,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-CV_AndreasLoevgaard.pdf
-Eksamensbevis_AndreasLoevgaard.pdf
-praktikudtalelse_AndreasLoevgaard.pdf
-Udtalelse_AndreasLoevgaard_NIRAS.pdf
-print_output.ipynb
-string_analyze.ipynb
+# Other
+*.pdf
+*.svg
+*.png
+resources.qrc

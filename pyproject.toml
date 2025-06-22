@@ -1,0 +1,11 @@
+[project]
+name = "pdfmerger"
+version = "0.1.0"
+description = "Easily merge PDF files"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pypdf2>=3.0.1",
+    "pyqt6>=6.9.1",
+    "pyqt6-webengine>=6.9.0",
+]
